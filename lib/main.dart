@@ -1,14 +1,23 @@
 
+import 'package:bloc/bloc.dart';
+import 'package:daily_workout/shared/bloc_observer.dart';
+
 import 'package:flutter/material.dart';
 import 'login_screen.dart';
 
 
 void main() {
+  Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 
+
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
+
+
+
+
 
   @override
   Widget build(BuildContext context) {

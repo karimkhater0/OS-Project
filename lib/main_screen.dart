@@ -5,7 +5,7 @@ import 'morning_screen.dart';
 class MainScreen extends StatelessWidget {
 
   final String? name;
-  const MainScreen({super.key, required this.name});
+  const MainScreen({Key? key, required this.name}) : super(key: key);
 
 
   @override
@@ -97,7 +97,7 @@ class MainScreen extends StatelessWidget {
                                   size: 15,
                                 ),
                                 Text(
-                                  " 4 minutes",
+                                  " 3 minutes",
                                   style: TextStyle(
                                     color: Colors.white,
                                   ),
@@ -105,13 +105,14 @@ class MainScreen extends StatelessWidget {
                                 SizedBox(
                                   width: 10,
                                 ),
+
                                 Icon(
                                   Icons.electric_bolt_sharp,
                                   color: Colors.white,
                                   size: 15,
                                 ),
                                 Text(
-                                  " 10 exercises",
+                                  " 6 exercises",
                                   style: TextStyle(
                                     color: Colors.white,
                                   ),
