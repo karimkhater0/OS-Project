@@ -60,6 +60,20 @@ flutter:
   assets:
     - images/
     - images/m/
+    - images/s/
+    - images/amateur/
+    - images/amateur/back/
+    - images/amateur/biceps/
+    - images/amateur/chest/
+    - images/amateur/legs/
+    - images/amateur/shoulder/
+    - images/amateur/triceps/
+    - images/pro/day1/
+    - images/pro/day2/
+    - images/pro/day3/
+    - images/pro/day4/
+    - images/pro/day5/
+    - images/pro/day6/
 
 
   # The following line ensures that the Material Icons font is

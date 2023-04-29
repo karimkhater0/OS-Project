@@ -1,7 +1,7 @@
 import 'package:daily_workout/warmup_screens/timer_screen1.dart';
 import 'package:flutter/material.dart';
 
-import 'login_screen.dart';
+
 
 class MorningScreen extends StatefulWidget {
   const MorningScreen({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class MorningScreen extends StatefulWidget {
 
 class _MorningScreenState extends State<MorningScreen> {
 
-   List<String> MorningEx=
+   List<String> morningEx=
   <String>[
     "REVERSE CRUNCHES",
     "ABDOMINAL CRUSHES",
@@ -21,7 +21,7 @@ class _MorningScreenState extends State<MorningScreen> {
     "BUTT KICKS",
     "JUMPING JACKS",
   ];
-  List<String> MorningExTimer= <String>['20','20','25','30','30','30',];
+  List<String> morningExTimer= <String>['20','20','25','30','30','30',];
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class _MorningScreenState extends State<MorningScreen> {
               ),
 
               background: Image(
-                  image:AssetImage('images/exercise2.jpg'),
+                  image:AssetImage('images/morning.png'),
                 fit: BoxFit.cover,
               ),
               
@@ -62,8 +62,8 @@ class _MorningScreenState extends State<MorningScreen> {
               itemCount: 6,
               itemBuilder: (BuildContext context, int index) => Card(
                 child: ListTile(
-                  title:  Text(MorningEx[index]),
-                  subtitle:  Text("00:${MorningExTimer[index]}"),
+                  title:  Text(morningEx[index]),
+                  subtitle:  Text("00:${morningExTimer[index]}"),
                   trailing: const Icon(Icons.run_circle_outlined),
 
                 ),
@@ -94,7 +94,7 @@ class _MorningScreenState extends State<MorningScreen> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context)=>TimerScreen1(),
+                      builder: (context)=>const TimerScreen1(),
                     )
                 );
 

@@ -1,19 +1,51 @@
+import 'package:daily_workout/customized_routine/beginner_routine.dart';
+import 'package:daily_workout/customized_routine/pro_routine.dart';
 import 'package:daily_workout/sleepy_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'customized_routine/amateur_routine.dart';
 import 'morning_screen.dart';
 
 class MainScreen extends StatelessWidget {
-
+  MainScreen({Key? key, required this.name,required this.level, }) : super(key: key);
   final String? name;
-  const MainScreen({Key? key, required this.name}) : super(key: key);
+  final String? level;
+  var nextPage;
+  var nODays;
+  var nOEx;
+  void navMethod(level)
+  {
+    if(level=='Beginner')
+      {
+        nextPage=CustomizedRoutine1();
+        nODays=3;
+        nOEx=22;
+
+      }
+    else if(level=='Amateur')
+      {
+        nextPage=CustomizedRoutine2();
+        nODays=5;
+        nOEx=42;
+      }
+    else
+      {
+        nextPage=CustomizedRoutine3();
+        nODays=6;
+        nOEx=60;
+      }
+
+  }
+
 
 
   @override
   Widget build(BuildContext context) {
+    navMethod(level);
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('images/bg3.jpeg'),
+          image: AssetImage('images/background.jpeg'),
           fit: BoxFit.cover,
         ),
       ),
@@ -65,7 +97,7 @@ class MainScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: const DecorationImage(
-                          image: AssetImage('images/exercise2.jpg'),
+                          image: AssetImage('images/morning.png'),
                           fit: BoxFit.cover,
 
                         )),
@@ -82,7 +114,7 @@ class MainScreen extends StatelessWidget {
                           const Text(
                             "MORNING WARMUP",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.teal,
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
@@ -93,13 +125,13 @@ class MainScreen extends StatelessWidget {
                               children: const [
                                 Icon(
                                   Icons.access_time_filled,
-                                  color: Colors.white,
+                                  color: Colors.teal,
                                   size: 15,
                                 ),
                                 Text(
                                   " 3 minutes",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.teal,
                                   ),
                                 ),
                                 SizedBox(
@@ -108,13 +140,13 @@ class MainScreen extends StatelessWidget {
 
                                 Icon(
                                   Icons.electric_bolt_sharp,
-                                  color: Colors.white,
+                                  color: Colors.teal,
                                   size: 15,
                                 ),
                                 Text(
                                   " 6 exercises",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.teal,
                                   ),
                                 ),
                               ],
@@ -158,7 +190,7 @@ class MainScreen extends StatelessWidget {
                           const Text(
                             "SLEEPY TIME STRETCHING",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.teal,
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
@@ -169,13 +201,13 @@ class MainScreen extends StatelessWidget {
                               children: const [
                                 Icon(
                                   Icons.access_time_filled,
-                                  color: Colors.white,
+                                  color: Colors.teal,
                                   size: 15,
                                 ),
                                 Text(
-                                  " 6 minutes",
+                                  " 4 minutes",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.teal,
                                   ),
                                 ),
                                 SizedBox(
@@ -183,13 +215,13 @@ class MainScreen extends StatelessWidget {
                                 ),
                                 Icon(
                                   Icons.electric_bolt_sharp,
-                                  color: Colors.white,
+                                  color: Colors.teal,
                                   size: 15,
                                 ),
                                 Text(
-                                  " 13 exercises",
+                                  " 7 exercises",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.teal,
                                   ),
                                 ),
                               ],
@@ -239,9 +271,9 @@ class MainScreen extends StatelessWidget {
                     height: 150,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        //color: Colors.red,
+
                         image: const DecorationImage(
-                          image: AssetImage('images/sleepy.jpeg'),
+                          image: AssetImage('images/customized.png'),
                           fit: BoxFit.cover,
                         )),
 
@@ -259,7 +291,7 @@ class MainScreen extends StatelessWidget {
                           const Text(
                             "Customized Routine",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.teal,
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
@@ -267,30 +299,30 @@ class MainScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 0,vertical: 15),
                             child: Row(
-                              children: const [
-                                Icon(
+                              children:  [
+                                const Icon(
                                   Icons.access_time_filled,
-                                  color: Colors.white,
+                                  color: Colors.teal,
                                   size: 15,
                                 ),
                                 Text(
-                                  " ? minutes",
-                                  style: TextStyle(
-                                    color: Colors.white,
+                                  "$nODays days a week",
+                                  style: const TextStyle(
+                                    color: Colors.teal,
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
-                                Icon(
+                                const Icon(
                                   Icons.electric_bolt_sharp,
-                                  color: Colors.white,
+                                  color: Colors.teal,
                                   size: 15,
                                 ),
                                 Text(
-                                  " ? exercises",
-                                  style: TextStyle(
-                                    color: Colors.white,
+                                  "$nOEx exercises a week",
+                                  style: const TextStyle(
+                                    color: Colors.teal,
                                   ),
                                 ),
                               ],
@@ -303,8 +335,8 @@ class MainScreen extends StatelessWidget {
                   ),
 
                   onTap: (){
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: (context)=>const SleepyScreen(),));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context)=>nextPage,));
                   },
                 ),
 

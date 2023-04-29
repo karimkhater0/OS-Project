@@ -8,62 +8,66 @@ class AppCubit extends Cubit<AppStates>
   static AppCubit get(context)=> BlocProvider.of(context);
 
   late Database database;
-
-  void createDatabase()
+  List<Map> accounts=[];
+  void createDatabase()async
   {
-     openDatabase(
-      'test1.db',
-      version: 1,
-      onCreate: (database,version) async
+    database = await openDatabase(
+        'f',
+        version: 1,
+        onCreate: (database,version)
+        async {
+          print('Database created');
+          await database.execute(
+              'CREATE TABLE accounts(id INTEGER PRIMARY KEY,name TEXT,weight INTEGER,height INTEGER,age INTEGER, gender TEXT, level TEXT)'
+          ).then((value) {print('table created');});
+
+        },
+
+        onOpen: (database)
+        {
+          emit(AppCreateDatabaseState());
+          getFromDatabase(database).then((value){
+            accounts=value;
+            print(accounts);
+
+          });
+          print('database opened');
+        }
+
+    );
+  }
+
+  Future insertToDatabase(
       {
-        print('Database created');
-        await database.execute('CREATE TABLE accounts(id INTEGER PRIMARY KEY,name TEXT,weight INTEGER,height INTEGER,age INTEGER, gender TEXT, level TEXT)');
-      },
-      onOpen: (database){
-
-
-        print('Database opened');
-      },
-    ).then((value)
+        required String name,
+        required int weight,
+        required int height,
+        required int age,
+        required String gender,
+        required String level
+      })async
+  {
+    return await database.transaction((txn)
     {
-      database=value;
+      return txn.rawInsert(
+          'INSERT INTO accounts(name,weight,height,age,gender,level) VALUES("$name","$weight","$height","$age","$gender","$level")'
+      ).then((value) {
+        emit(AppInsertToDatabaseState());
+        print('$value inserted successfully');
+        getFromDatabase(database);
 
-      emit(AppCreateDatabaseState());
-
-
+      }).catchError((error)
+      {
+        print('Error while inserting the data $error');
+      });
     });
-
 
   }
 
- Future insertToDatabase({
-    required String name,
-    required int height,
-    required int weight,
-    required int age,
-    required String gender,
-    required String level,
-  })async
+  Future<List<Map>> getFromDatabase(database)async
   {
-    return await database.transaction((txn) {
-      txn.rawInsert(
-          'INSERT INTO accounts(name,height,weight,age,gender,level) VALUES("$name","$height","$weight","$age","$gender","$level")',
-      ).then((value) {
-        print('$value Inserted Successfully');
-        emit(AppInsertToDatabaseState());
-
-      })
-          .catchError((error){
-        print('Error while inserting the data $error');
-      });
-
-      return Future.sync(() => null);
-
-    });
-
-
-
-
+    emit(AppGetDatabaseState());
+    return await database.rawQuery('SELECT * FROM accounts');
   }
 
 }

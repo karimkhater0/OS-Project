@@ -11,23 +11,18 @@ class SleepyScreen extends StatefulWidget {
 
 class _SleepyScreenState extends State<SleepyScreen> {
 
-  List<String> sleepyEx=
-  <String>[
-    "LEFT QUAD STRETCH WITH WALL",
-    "RIGHT QUAD STRETCH WITH WALL",
-    "CALF STRETCH LEFT",
-    "CALF STRETCH RIGHT",
-    "TRICEPS STRETCH LEFT",
+  List<String> sleepyEx=[
     "TRICEPS STRETCH RIGHT",
-    "COBRA STRETCH",
+    "TRICEPS STRETCH LEFT",
     "CHILD'S POSE",
-    "CAT COW POSE",
-    "BRIDGE",
-    "LYING BUTTERFLY STRETCH",
-    "LYING TWIST STRETCH LEFT",
-    "LYING TWIST STRETCH RIGHT",
+    "BUTTERFLY STRETCH",
+    "KNEE STRETCH",
+    "LEFT LEG STRETCH",
+    "RIGHT LEG STRETCH",
   ];
-  List<String> sleepyExTimer= <String>["20","20","20","20","30","30","30","30","40","30","50","20","20"];
+  List<String> sleepyExTimer=["30","30","30","50","40","30","30",];
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +54,7 @@ class _SleepyScreenState extends State<SleepyScreen> {
             child: ListView.builder(
               primary: false,
               shrinkWrap: true,
-              itemCount: 10,
+              itemCount: 7,
               itemBuilder: (BuildContext context, int index) => Card(
                 child: ListTile(
                   title:  Text(sleepyEx[index]),
@@ -96,21 +91,13 @@ class _SleepyScreenState extends State<SleepyScreen> {
                   )
               );
             },
-            child: Center(
-              child: Column(
-                children: const [
-                  Icon(
-                    Icons.play_arrow_rounded,
-                    color: Colors.white,
-                  ),
-
-                  Text(
-                    'start',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
+            child: const Center(
+              child: Text(
+                'start',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
               ),
             ),
           ),

@@ -22,12 +22,18 @@ class _InfoScreenState extends State<InfoScreen> {
   int weight = 75;
   String? name;
   var formKey = GlobalKey<FormState>();
+  late Database database;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
 
+  }
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) =>AppCubit(),
+      create: (BuildContext context) =>AppCubit()..createDatabase(),
       child: BlocConsumer<AppCubit, AppStates>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -47,7 +53,7 @@ class _InfoScreenState extends State<InfoScreen> {
             body: Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("images/bg3.jpeg"),
+                  image: AssetImage("images/background.jpeg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -455,7 +461,7 @@ class _InfoScreenState extends State<InfoScreen> {
                                 gender != null &&
                                 level != null) {
                               name = userNameController.text;
-                              cubit.insertToDatabase(
+                               cubit.insertToDatabase(
                                   name: userNameController.text,
                                   height: height.round(),
                                   weight: weight,
@@ -469,7 +475,11 @@ class _InfoScreenState extends State<InfoScreen> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            MainScreen(name: name)));
+                                            MainScreen(name: name, level: level,)
+                                    )
+                                );
+
+
 
                               }).catchError((error)
                               {
@@ -498,4 +508,6 @@ class _InfoScreenState extends State<InfoScreen> {
       ),
     );
   }
+
+
 }

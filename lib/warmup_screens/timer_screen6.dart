@@ -160,10 +160,13 @@ class _TimerScreen6State extends State<TimerScreen6> {
                       timer!.cancel();
 
                     }
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>  const MainScreen(name: 'Karim')));
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                    Navigator.pop(context);
                   },
                   child: Column(
                     children: const [

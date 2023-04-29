@@ -47,25 +47,25 @@ class _SScreen3State extends State<SScreen3> {
           children: [
             //اسم التمرين
             const Text(
-              "BRIDGE",
+              "CHILD'S POSE",
               style:  TextStyle(
-                fontSize: 30,
+                fontSize: 25,
               ),
             ),
 
             //الصورة
-            const Image(image: AssetImage("images/bridge.gif"),),
-            const SizedBox(
-              height: 50,
-            ),
+            const Image(image: AssetImage("images/s/child's pose.jpeg"),),
+
 
             //الشرح والتايمر
             Column(
               children:   [
                 const Text(
-                  "Lie flat on the floor,and lift your hips off the floor while keeping your back straight.",
+                  '''Start with your knees and hands on the floor. Put your hands a little forward, widen your knees and put your toes together.
+
+Take a breath, then exhale and sit back. Try to make your butt touch your heels. Relax your elbows, make your forehead touch the floor and try to lower your chest close to the floor. Hold this position.''',
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 15,
                     color: Colors.grey,
                   ),
                 ),
@@ -73,9 +73,9 @@ class _SScreen3State extends State<SScreen3> {
                   height: 20,
                 ),
                 const Text(
-                  "Hold this position as long as you can. The bridge exercise strengthens the whole abdomen, the lower back and the glutes",
+                  '''Keep your arms stretched forward as you sit back. Make sure there is enough space between your shoulders and ears during the exercise.''',
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 15,
                     color: Colors.grey,
                   ),
                 ),

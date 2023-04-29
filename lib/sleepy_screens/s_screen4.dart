@@ -11,7 +11,7 @@ class SScreen4 extends StatefulWidget {
 
 class _SScreen4State extends State<SScreen4> {
   var isStarted = false;
-  int counter=20;
+  int counter=50;
   Timer? timer;
   void _timer(){
 
@@ -47,38 +47,27 @@ class _SScreen4State extends State<SScreen4> {
           children: [
             //اسم التمرين
             const Text(
-              "BRIDGE",
+              "BUTTERFLY STRETCH",
               style:  TextStyle(
                 fontSize: 30,
               ),
             ),
 
             //الصورة
-            const Image(image: AssetImage("images/bridge.gif"),),
-            const SizedBox(
-              height: 50,
-            ),
+            const Image(image: AssetImage("images/s/butterfly-pose.jpg"),),
+
 
             //الشرح والتايمر
             Column(
               children:   [
                 const Text(
-                  "Lie flat on the floor,and lift your hips off the floor while keeping your back straight.",
+                  "Sit on the floor with your feet together. Open your knees to the sides.Hold this position.",
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.grey,
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Text(
-                  "Hold this position as long as you can. The bridge exercise strengthens the whole abdomen, the lower back and the glutes",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.grey,
-                  ),
-                ),
+
                 const SizedBox(
                   height: 30,
                 ),

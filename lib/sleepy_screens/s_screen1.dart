@@ -13,7 +13,7 @@ class _SScreen1State extends State<SScreen1> {
 
 
   var isStarted = false;
-  int counter=20;
+  int counter=30;
   Timer? timer;
   void _timer(){
 
@@ -49,14 +49,14 @@ class _SScreen1State extends State<SScreen1> {
           children: [
             //اسم التمرين
             const Text(
-              "BRIDGE",
+              "TRICEPS STRETCH RIGHT",
               style:  TextStyle(
-                fontSize: 30,
+                fontSize: 25,
               ),
             ),
 
             //الصورة
-            const Image(image: AssetImage("images/bridge.gif"),),
+            const Image(image: AssetImage("images/s/triceps stretching.gif"),),
             const SizedBox(
               height: 50,
             ),
@@ -64,20 +64,11 @@ class _SScreen1State extends State<SScreen1> {
             //الشرح والتايمر
             Column(
               children:   [
+
                 const Text(
-                  "Lie flat on the floor,and lift your hips off the floor while keeping your back straight.",
+                  "Put your right hand on your back, use your left hand to grab your right elbow and gently pull it. Hold this position for a few seconds.",
                   style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.grey,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Text(
-                  "Hold this position as long as you can. The bridge exercise strengthens the whole abdomen, the lower back and the glutes",
-                  style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 15,
                     color: Colors.grey,
                   ),
                 ),

@@ -1,5 +1,6 @@
 import 'dart:async';
-import 'package:daily_workout/main_screen.dart';
+
+import 'package:daily_workout/sleepy_screens/s_screen6.dart';
 import 'package:flutter/material.dart';
 
 class SScreen5 extends StatefulWidget {
@@ -11,7 +12,7 @@ class SScreen5 extends StatefulWidget {
 
 class _SScreen5State extends State<SScreen5> {
   var isStarted = false;
-  int counter=20;
+  int counter=40;
   Timer? timer;
   void _timer(){
 
@@ -47,17 +48,15 @@ class _SScreen5State extends State<SScreen5> {
           children: [
             //اسم التمرين
             const Text(
-              "BRIDGE",
+              "KNEE STRETCH",
               style:  TextStyle(
                 fontSize: 30,
               ),
             ),
 
             //الصورة
-            const Image(image: AssetImage("images/bridge.gif"),),
-            const SizedBox(
-              height: 50,
-            ),
+            const Image(image: AssetImage("images/s/knee stretching.gif"),),
+
 
             //الشرح والتايمر
             Column(
@@ -155,7 +154,8 @@ class _SScreen5State extends State<SScreen5> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>  const MainScreen(name: 'Karim')));
+                            builder: (context) =>  const SScreen6()));
+
                   },
                   child: Column(
                     children: const [
